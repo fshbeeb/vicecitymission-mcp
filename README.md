@@ -1,5 +1,7 @@
 # Vice City Mission MCP server
 
+[![Scanned by Foo Guard: Vice City Mission: GTA VI companion v1.0.0](https://fooguard.com/api/public-library/community-b75596ca-9888-4d7f-92c6-6787f41b5126/1.0.0/badge.svg)](https://fooguard.com/library/community-b75596ca-9888-4d7f-92c6-6787f41b5126/1.0.0/verify)
+
 A free, read-only [MCP](https://modelcontextprotocol.io) server for **Grand Theft Auto VI**, run by the fan site [vicecitymission.com](https://vicecitymission.com). Connect it to Claude, Cursor or any MCP client, then ask things like "what songs has Rockstar confirmed for Cocoteo FM?" or "which real Miami places match the landmarks near Ocean Beach?".
 
 > **Unofficial.** Vice City Mission is a fan project. It is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.
@@ -52,6 +54,21 @@ All 11 tools are read-only.
 | `find_nearby` | Find pins close to another pin or to a map position, nearest first. |
 | `get_checklist` | The completion checklist from the Vice City Mission tracker: story missions, side missions, activities, collectibles and trophies. |
 | `checklist_remaining` | Given the ids a player has completed (from the tracker's 'Copy progress for AI' button), return what is still left, with missable items first, and the completion percentage. |
+
+## Agent skill
+
+[`skills/vice-city-mission/SKILL.md`](skills/vice-city-mission/SKILL.md) tells an agent when and how to use this server: which tool fits which question, to check whether data exists before answering, to keep the official/reported/community label, to treat player pins as unverified, and to ask before spoilers. It needs no API key and uses only `https://vicecitymission.com/mcp`.
+
+Install it the way your agent loads `SKILL.md` skills, for example by copying the `vice-city-mission` folder into `~/.claude/skills/` for Claude Code.
+
+Version 1.0.0 is published in the [Foo Guard public Library](https://fooguard.com/library/community-b75596ca-9888-4d7f-92c6-6787f41b5126/1.0.0/verify), which ran a deterministic static scan over these exact bytes (Grade A, 0 findings). A static scan is not proof of runtime safety. To check that your copy matches the scanned file:
+
+```bash
+shasum -a 256 skills/vice-city-mission/SKILL.md
+# expected: de4a2ad4baff793b532cd68c17807858bcf7e7b3d3dc76e5b881b85d2c373c68
+```
+
+If you edit the skill, the hash changes and the badge no longer describes your copy.
 
 ## Example questions
 
